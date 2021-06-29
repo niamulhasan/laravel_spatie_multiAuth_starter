@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\Courses;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -27,10 +25,7 @@ class DashboardController extends Controller
             return view("backend.auth.login");
         }
         else{
-            $statData = [
-                'total_courses' => Courses::count(),
-                'total_categories' => Categories::count()
-            ];
+            $statData = [];
 
             //return $courses;
             return view('backend.pages.dashboard.index', compact('statData'));
